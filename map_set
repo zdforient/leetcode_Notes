@@ -53,3 +53,8 @@ auto findMaxValuePair(Container const &x)
     };
     return *std::max_element(x.begin(), x.end(), compare);
 }
+
+
+//4. set insert operation
+auto a = s.insert(n);
+//a is the loc/pointer that point to n in set a;
