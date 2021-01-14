@@ -11,3 +11,45 @@ else
     
 //min
 *myset.begin();
+
+
+//3. find largest and min num in map and unordered_map
+
+//map
+template <class Key, class Value>
+std::pair<Key, Value> findMaxValuePair(
+    std::map<Key, Value> const &x)
+{
+    return *std::max_element(x.begin(), x.end(),
+                             [](const std::pair<Key, Value> &p1,
+                                const std::pair<Key, Value> &p2)
+                             {
+                                 return p1.second < p2.second;
+                             });
+}
+
+//unordered_map
+template <class Key, class Value>
+std::pair<Key, Value> findMaxValuePair(
+    std::unordered_map<Key, Value> const &x)
+{
+    return *std::max_element(x.begin(), x.end(),
+                             [](const std::pair<Key, Value> &p1,
+                                const std::pair<Key, Value> &p2)
+                             {
+                                 return p1.second < p2.second;
+                             });
+}
+
+//*map
+template <class Container>
+auto findMaxValuePair(Container const &x) 
+    -> typename Container::value_type
+{
+    using value_t = typename Container::value_type;
+    const auto compare = [](value_t const &p1, value_t const &p2)
+    {
+        return p1.second < p2.second;
+    };
+    return *std::max_element(x.begin(), x.end(), compare);
+}
