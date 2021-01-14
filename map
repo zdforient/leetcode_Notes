@@ -1,0 +1,6 @@
+//1. dif of map and unordered_map
+key of map is saved in a binary manner and find a key in map take O(log N) time
+key of unordered_map is saved in a hash table. it's like 00111010110 to find a key, usually it takes O(1) time to find a key.
+if a key is saved in a "a, aa, aaa,aav, aavd" manner, it could take O(N) time
+
+//2. 
